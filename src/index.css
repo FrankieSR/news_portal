@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #fff;
+}
+
+.post {
+  margin: 25px;
+  box-shadow: 0 0 10px #aaa;
+  display: flex;
+  justify-content: space-around;
+  min-height: 100px;
+  cursor: pointer;
+}
+
+.post__image {
+  flex-basis: 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.post__info {
+  flex-basis: 75%;
+  text-align: center;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+p {
+  font-size: 14px;
+}
