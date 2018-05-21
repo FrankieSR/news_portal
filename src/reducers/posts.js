@@ -1,21 +1,19 @@
 const initialState = {
-  posts: [],
+  items: []
 };
 
-export default function (state = initialState, action) {
-
+export default function(state = initialState, action) {
   switch (action.type) {
-    case 'SET_POSTS':
+    case "SET_POSTS":
       return {
         ...state,
-        posts: action.payload
+        items: action.payload
       };
-      case 'REMOVE_POST':
-        return {
-          ...state
-        };
+    case "REMOVE_POST":
+      return {
+        ...state
+      };
     default:
       return state;
   }
-
-};
+}

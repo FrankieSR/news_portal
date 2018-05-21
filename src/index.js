@@ -7,16 +7,8 @@ import store from './store';
 
 import './index.css';
 
-store.subscribe(() => {
-      alert('store changing');
-});
 
-setTimeout(()=>{
-  store.dispatch({
-    type: 'qwe'
-  });
-  console.log(store.getState());
-}, 1000);
+
 
 render(
   <Provider store={store}>

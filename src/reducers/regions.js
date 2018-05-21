@@ -1,5 +1,5 @@
 const initialState = {
-  region: 'ZP'
+  region: 'ZP',
 };
 
 export default function( state = initialState, action ){
@@ -8,10 +8,10 @@ export default function( state = initialState, action ){
     case 'CHANGE_REGION':
       return {
         ...state,
-        region: action.payload
+        region: action.payload,
       };
       default:
         return state;
   }
 
-};
+}

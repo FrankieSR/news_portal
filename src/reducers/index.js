@@ -1,13 +1,11 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import posts from './posts';
-import region from './regions';
-
+import posts from "./posts";
+import region from "./regions";
 
 const rootReducers = combineReducers({
-    posts,
-    region
+  posts,
+  region
 });
-
 
 export default rootReducers;
