@@ -1,9 +1,17 @@
-import parsePost from "./parsePost";
-import { elems } from "./configs";
+import { parsePost, parseLinks, getPosts } from "./parsePost";
+import fs from "fs";
 
-const Post = parsePost(
-  "http://football.ua/ukraine/362045-upl-sbornaja-31-go-tura.html",
-  elems.footballua
-);
+const saveResult = json => {
+  fs.writeFile("result.json", json, err => {
+    if (err) console.log("not saved");
+  });
+};
 
-Post.then(data => console.log(data));
+const urlPage = "https://www.ua-football.com/ukrainian/high/";
+parseLinks(urlPage, ".fbi", 3)
+  .then(links => {
+    getPosts(links)
+      .then(posts => saveResult(JSON.stringify(posts, 0, 4)))
+      .catch(e => console.log(e));
+  })
+  .catch(e => console.log(e));

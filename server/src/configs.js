@@ -7,7 +7,7 @@ const elems = {
   uaFootball: {
     title: ".big_title h1",
     image: ".big_title",
-    text: "._ga1_on_ p"
+    text: "._ga1_on_ p",
   },
   sportUa: {
     title: ".post__title",

@@ -11,23 +11,39 @@ class App extends Component {
 
   fetchPosts() {
     const { setPosts } = this.props;
-    setPosts(['loading']);
+    setPosts(["loading"]);
     axios
-      .get("http://5afabec9bc1beb0014c29d20.mockapi.io/posts")
+      .get("https://5afabec9bc1beb0014c29d20.mockapi.io/post")
       .then(({ data }) => {
         setPosts(data);
       });
   }
 
+  fetchPosts2() {
+    const { setPosts } = this.props;
+    setPosts(["loading"]);
+    axios
+      .get("https://5afabec9bc1beb0014c29d20.mockapi.io/post2")
+      .then(({ data }) => {
+        setPosts(data);
+      });
+  }
+
+
+
+
   render() {
-    console.log('this --->' , this.props.region.region);
+
     const { posts } = this.props;
     const { items } = posts;
+
+    console.log(items + "<===================");
     return (
       <div>
         <div>
-          <button onClick={this.fetchPosts.bind(this)}>Load posts</button>
           <h3>Region: {this.props.region.region}</h3>
+          <button onClick={this.fetchPosts.bind(this)}>получить</button>
+          <button onClick={this.fetchPosts2.bind(this)}>получить 2</button>
           <ul>
             <li>
               <button onClick={() => this.props.changeRegion("ZP")}>ZP</button>
@@ -45,13 +61,8 @@ class App extends Component {
         {!items.length ? (
           <span>Loading ...</span>
         ) : (
-          items.map(({ title, description, image }, key) => (
-            <Post
-              key={key}
-              title={title}
-              description={description}
-              image={image}
-            />
+          items.map(({ title, text, image }, key) => (
+            <Post key={key} title={title} description={text} image={image} />
           ))
         )}
       </div>
